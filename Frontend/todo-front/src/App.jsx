@@ -8,25 +8,29 @@ function App() {
 
   const [ todos , setTodos] = useState([]);
 
-  useEffect(()=>{
-    const fetchdata = async ()=>{
-     try{
-       const res = await fetch("http://localhost:5000/get");
-        const json =  res.json();
-        setTodos(json.todos)
-     }
-     catch(error){
-      console.error("Error detected" , error);
-     }
+
+  useEffect( ()=>{
+     const fetchdata = async ()=>{
+      const res =  await fetch("http://localhost:5000/get");
+      const json = await  res.json();
+      setTodos(json.todos);
+  
     }
     fetchdata();
-  },[todos])
+
+  } , [])
+
+
   return ( 
+  
       <div>
         <CreateTodo></CreateTodo>
         <TodoRender  todos = {todos}/>
-        {/* <DeleteTodo prop = {todos}/> */}
+  
         
+       
+
+
 
        </div>
   

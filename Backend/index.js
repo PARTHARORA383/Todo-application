@@ -32,10 +32,10 @@ app.get("/get",async function(req,res){
  })
 })
 
-app.delete('/delete/:id', async (req,res)=>{
+app.get('/delete/:id', async (req,res)=>{
  let delid = req.params.id;
 await todo.deleteOne({id : delid}).then(result=>{
-  res.json({
+  result.json({
     msg : "todo - deleted"
   });
 })
