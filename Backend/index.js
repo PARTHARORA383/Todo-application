@@ -25,7 +25,7 @@ app.post("/signup",async function(req,res){
   })
 })
 
-app.get("/hlo",async function(req,res){
+app.get("/get",async function(req,res){
  const todos =  await todo.find({})
  res.json({
   todos

@@ -2,7 +2,7 @@ import { useState } from "react";
 
  export function CreateTodo  (){
 
-  const[id , setId]=useState();
+  const[id , setId]=useState(0);
   const [title,setTitle] = useState("")
   const [ description , setDescription] = useState("")
   return <div>
@@ -34,9 +34,9 @@ import { useState } from "react";
         }),
         headers : {
           "Content-type":"application/json"
-        }}).then(
-      async function(res){
+        }}).then(function(res){
         const json = res.json();
+        console.log(json);
       }
     )}}> Add a Todo</button>
     {/* <button>Delete Todo</button> */}
