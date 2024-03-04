@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CreateTodo } from "./components/CreateTodo"
-import { TodoUpdate } from "./components/TodoUpdate"
+import { TodoRender } from "./components/TodoRender"
+import { DeleteTodo } from "./components/DeleteTodo";
 
 
 function App() {
@@ -19,13 +20,12 @@ function App() {
 
   },[todos])
 
-  
 
   return ( 
   
       <div>
         <CreateTodo></CreateTodo>
-        <TodoUpdate  todos = {todos}/>
+        <TodoRender  todos = {todos}/>
         
        
 

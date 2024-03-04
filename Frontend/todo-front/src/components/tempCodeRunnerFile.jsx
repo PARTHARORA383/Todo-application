@@ -1,0 +1,1 @@
+ <DeleteTodo  prop = {todo.id} prop1  ={todo.title} prop3 = {todo.description}></DeleteTodo>
