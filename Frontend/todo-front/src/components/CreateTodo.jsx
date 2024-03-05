@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DeleteTodo } from "./DeleteTodo";
+
 
 export function CreateTodo() {
   const [id, setId] = useState(0);
@@ -42,7 +42,7 @@ export function CreateTodo() {
           }
           )
       }}> Add a Todo</button>
-      <DeleteTodo id={id}></DeleteTodo>
+   
     </div>
   </div>
 

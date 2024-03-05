@@ -8,12 +8,11 @@ app.use(express.json());
 app.use(cors());
 
 
-
-
 app.post("/signup",async function(req,res){
-  const id = req.body.id;
-  const title = req.body.title;
-  const description = req.body. description;
+  // const id = req.body.id;
+  // const title = req.body.title;
+  // const description = req.body. description;
+  console.log("hello 1")
   //Put in database 
   await todo.create({
     id  : id,
@@ -32,11 +31,12 @@ app.get("/get",async function(req,res){
  })
 })
 
-app.get('/delete/:id', async (req,res)=>{
+app.delete('/delete/:id', async (req,res)=>{
+  console.log("hello")
  let delid = req.params.id;
 await todo.deleteOne({id : delid}).then(result=>{
-  result.json({
-    msg : "todo - deleted"
+  res.json({
+    msg : "todo-deleted"
   });
 })
 

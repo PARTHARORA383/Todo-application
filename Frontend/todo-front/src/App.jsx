@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import * as ReactDOM from 'react-dom/client';
 import { CreateTodo } from "./components/CreateTodo"
 import { TodoRender } from "./components/TodoRender"
 import { DeleteTodo } from "./components/DeleteTodo";
@@ -17,19 +18,22 @@ function App() {
   
     }
     fetchdata();
-
   } , [])
+
+  
+  const handleDeleteTodo = (deletedId) => {
+    // Update the state by removing the deleted todo
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== deletedId));
+  };
 
 
   return ( 
   
       <div>
         <CreateTodo></CreateTodo>
-        <TodoRender  todos = {todos}/>
+        <TodoRender  todos = {todos} onDelete={handleDeleteTodo}/>
   
-        
-       
-
+      
 
 
        </div>

@@ -1,7 +1,7 @@
 import { DeleteTodo } from "./DeleteTodo"
 
 
-export const TodoRender = ({todos}) => {
+export const TodoRender = ({todos , onDelete}) => {
   return <div>
     {todos.map(function(todo) {
       return <div key={todo.id}>
@@ -10,7 +10,7 @@ export const TodoRender = ({todos}) => {
           <h4>{todo.id}</h4>
           <h1>{todo.title}</h1>
           <h2>{todo.description}</h2>
-          {/*<DeleteTodo  prop = {todo.id} ></DeleteTodo>*/}
+          <DeleteTodo  id = {todo.id}  onDelete ={onDelete}></DeleteTodo>
         </div>
       </div>
       </div>

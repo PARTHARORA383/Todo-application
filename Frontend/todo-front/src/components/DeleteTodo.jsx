@@ -1,15 +1,10 @@
 import React from "react";
 
-export function DeleteTodo(id) {
+export function DeleteTodo({id , onDelete}) {
   const handleDelete = async () => {
     try {
       const response = await fetch(`http://localhost:5000/delete/${id}`, {
         method: 'DELETE',
-        body: JSON.stringify({
-          id: id,
-          // title: prop1,
-          // description: prop2
-        }),
         headers: {
           'Content-Type': 'application/json'
         }
@@ -18,9 +13,13 @@ export function DeleteTodo(id) {
       if (!response.ok) {
         throw new Error('Failed to delete todo');
       }
-
+      
       const result = await response.json();
       console.log(result);
+      
+            if(onDelete){
+              onDelete(id);
+            }
     } catch (error) {
       console.error('Error deleting todo:', error);
     }
