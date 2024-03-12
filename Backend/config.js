@@ -1,4 +1,4 @@
-const JWT_SECRET =  "bilo-bagge-billaya-da-ki-karegi"
+const JWT_SECRET= "hello";
 module.exports={
   JWT_SECRET
-}
+};

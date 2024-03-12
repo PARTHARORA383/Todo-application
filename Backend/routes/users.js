@@ -2,7 +2,7 @@ const express = require("express");
 const {user} = require("../db");
 const zod = require("zod");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = require("../config");
+const {JWT_SECRET} = require("../config");
 
 const router = express.Router();
 
@@ -14,15 +14,15 @@ const signupBody = zod.object({
 })
 
 router.post("/signup",async (req , res)=>{
-  const {Success} = signupBody.safeParse(req.body);
+  const signup = signupBody.safeParse(req.body);
+  
 
-  if(!Success){
+  if(!signup.success){
     return res.status(411).json({
       msg : "Invalid inputs"
     })
   }
-    
-  const existingUser = user.findOne({
+  const existingUser = await user.findOne({
     username : req.body.username
   })
 
@@ -31,13 +31,13 @@ router.post("/signup",async (req , res)=>{
       msg : "User already exists"
     })
   }
-
-  const new_user = user.create({
+    await user.create({
     username : req.body.username,
     password : req.body.password
   })
 
   const userID = user._id ;
+  
 
   const token = jwt.sign({
    userID
@@ -50,7 +50,5 @@ router.post("/signup",async (req , res)=>{
 })
 
 
-module.exports = {
-  router
-}
+module.exports  = router;
 

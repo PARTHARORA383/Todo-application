@@ -1,13 +1,15 @@
 
 const express = require('express');
 const { todo } = require("./db");
-const rootRouter = require("./routes/index");
+
 const cors = require("cors")
 const app = express();
+const rootRouter = require("./routes/index");
 
 app.use(express.json());
 app.use(cors());
 
+const router = require("./routes/users")
 app.use("/api/v1" , rootRouter)
 
 

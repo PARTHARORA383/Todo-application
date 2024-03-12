@@ -6,6 +6,5 @@ const router = express.Router();
 router.use("/user" , userrouter);
 
 
-module.exports={
-  router
-}
+
+module.exports = router;
