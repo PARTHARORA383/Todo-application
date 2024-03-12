@@ -1,17 +1,20 @@
 
 const express = require('express');
 const { todo } = require("./db");
+const rootRouter = require("./routes/index");
 const cors = require("cors")
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
+app.use("/api/v1" , rootRouter)
 
-app.post("/signup",async function(req,res){
-  // const id = req.body.id;
-  // const title = req.body.title;
-  // const description = req.body. description;
+
+app.post("/post",async function(req,res){
+  const id = req.body.id;
+  const title = req.body.title;
+  const description = req.body. description;
   console.log("hello 1")
   //Put in database 
   await todo.create({

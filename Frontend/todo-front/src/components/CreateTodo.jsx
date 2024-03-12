@@ -23,7 +23,7 @@ export function CreateTodo() {
       }}></input><br>
       </br>
       <button style={{ padding: 10, margin: 10 }} onClick={() => {
-        fetch("http://localhost:5000/signup",
+        fetch("http://localhost:5000/post",
           {
             method:
               "POST"
