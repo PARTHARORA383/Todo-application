@@ -2,6 +2,7 @@ import {  useState } from "react";
 import { CreateTodo } from "./components/CreateTodo"
 import { TodoRender } from "./components/TodoRender"
 import { FetchTodo } from "./components/FetchTodo";
+import { Navbar } from "./components/NavBar";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return ( 
   
       <div>
+         <Navbar/>
         <CreateTodo></CreateTodo>
         <TodoRender  todos = {todos} onDelete={handleDeleteTodo}/>
         <FetchTodo todos = {todos}  setTodos = {setTodos}/>
